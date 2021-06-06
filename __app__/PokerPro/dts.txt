@@ -1,0 +1,194 @@
+/*
+declare module FB_PROTOCOL {
+    export class FB_PROTOCOL_FAKE { }
+    export interface VersionPacket {
+        CLASSID: number;
+    }
+    export interface TableChatPacket {
+        CLASSID: number;
+    }
+    export interface NotifyJoinPacket {
+        CLASSID: number;
+    }
+    export interface NotifyLeavePacket {
+        CLASSID: number;
+    }
+    export interface SeatInfoPacket {
+        CLASSID: number;
+    }
+    export interface JoinResponsePacket {
+        CLASSID: number;
+    }
+    export interface GameTransportPacket {
+        CLASSID: number;
+    }
+    export interface UnwatchResponsePacket {
+        CLASSID: number;
+    }
+    export interface LeaveResponsePacket {
+        CLASSID: number;
+    }
+    export interface WatchResponsePacket {
+        CLASSID: number;
+    }
+    export interface NotifySeatedPacket {
+        CLASSID: number;
+    }
+    export interface MttSeatedPacket {
+        CLASSID: number;
+    }
+    export interface MttRegisterResponsePacket {
+        CLASSID: number;
+    }
+    export interface MttUnregisterResponsePacket {
+        CLASSID: number;
+    }
+    export interface MttTransportPacket {
+        CLASSID: number;
+    }
+    export interface MttPickedUpPacket {
+        CLASSID: number;
+    }
+    export interface NotifyRegisteredPacket {
+        CLASSID: number;
+    }
+    export interface PingPacket {
+        CLASSID: number;
+    }
+    export interface ForcedLogoutPacket {
+        CLASSID: number;
+    }
+    export interface ServiceTransportPacket {
+        CLASSID: number;
+    }
+    export interface LocalServiceTransportPacket {
+        CLASSID: number;
+    }
+}
+
+declare module com {
+    module cubeia {
+        module games {
+            module poker {
+                module io {
+                    module protocol {
+                        export class protocol_fake { }
+
+                        export interface ProtocolObjectFactory {
+                            create(classId: any, gameData: any): any;
+                        }
+                        
+                        export interface GameState { CLASSID: number; }
+                        export interface BestHand { CLASSID: number; }
+                        export interface BuyInInfoRequest { CLASSID: number; }
+                        export interface BuyInInfoResponse { CLASSID: number; }
+                        export interface BuyInResponse { CLASSID: number; }
+                        export interface CardToDeal { CLASSID: number; }
+                        export interface DealerButton { CLASSID: number; }
+                        export interface DealPrivateCards { CLASSID: number; }
+                        export interface DealPublicCards { CLASSID: number; }
+                        export interface DeckInfo { CLASSID: number; }
+                        export interface ErrorPacket { CLASSID: number; }
+                        export interface ExposePrivateCards { CLASSID: number; }
+                        export interface ExternalSessionInfoPacket { CLASSID: number; }
+                        export interface FuturePlayerAction { CLASSID: number; }
+                        export interface GameCard { CLASSID: number; }
+                        export interface HandCanceled { CLASSID: number; }
+                        export interface HandEnd { CLASSID: number; }
+                        export interface InformFutureAllowedActions { CLASSID: number; }
+                        export interface PerformAction { CLASSID: number; }
+                        export interface PingPacket { CLASSID: number; }
+                        export interface PlayerAction { CLASSID: number; }
+                        export interface PlayerBalance { CLASSID: number; }
+                        export interface PlayerDisconnectedPacket { CLASSID: number; }
+                        export interface PlayerHandStartStatus { CLASSID: number; }
+                        export interface PlayerPokerStatus { CLASSID: number; }
+                        export interface PlayerReconnectedPacket { CLASSID: number; }
+                        export interface PlayerState { CLASSID: number; }
+                        export interface PongPacket { CLASSID: number; }
+                        export interface PotTransfers { CLASSID: number; }
+                        export interface RakeInfo { CLASSID: number; }
+                        export interface RequestAction { CLASSID: number; }
+                        export interface RebuyOffer { CLASSID: number; }
+                        export interface AddOnOffer { CLASSID: number; }
+                        export interface AddOnPeriodClosed { CLASSID: number; }
+                        export interface PlayerPerformedRebuy { CLASSID: number; }
+                        export interface PlayerPerformedAddOn { CLASSID: number; }
+                        export interface StartHandHistory { CLASSID: number; }
+                        export interface HandStartInfo { CLASSID: number; }
+                        export interface StopHandHistory { CLASSID: number; }
+                        export interface TakeBackUncalledBet { CLASSID: number; }
+                        export interface BlindsAreUpdated { CLASSID: number; }
+                        export interface TournamentDestroyed { CLASSID: number; }
+                        export interface WaitingToStartBreak { CLASSID: number; }
+                    
+                    }
+
+                }
+            }
+        }
+    }
+}
+*/
+///<reference path="cocos2dx.d.ts"/>
+module he {
+    export class Director {
+        static sharedDirector(): cc.Director {
+            if (window)
+            {
+                return cc.Director.getInstance();
+            }
+            else {
+                return cc.Director.sharedDirector();
+            }
+        }
+    }
+    export class StartupScene implements cc.TableViewDelegate, cc.TableViewDataSource {
+        public scene: cc.Scene;
+        constructor() {
+            this.scene = new cc.Scene();
+            var winsize: cc.size = Director.sharedDirector().getWinSize();
+            var label: cc.LabelTTF = cc.LabelTTF.create("Hello?");
+            label.setPosition(winsize.width/2, winsize.height/2);
+            //this.scene.addChild(label);
+
+            var view: cc.TableView = cc.TableView.create(this, new cc.size(60, 360));
+            view.setPosition(200, 100);
+            view.reloadData();
+            this.scene.addChild(view);
+        }
+        scrollViewDidScroll(v: cc.Node): void {
+        }
+        scrollViewDidZoom(v: cc.Node): void {
+        }
+        tableCellTouched(t: cc.TableView, cell: cc.TableViewCell): void {
+            console.log("touched");
+        }
+
+        cellSizeForTable(t: cc.TableView): cc.size {
+            return new cc.size(60, 60);
+        }
+        tableCellAtIndex(t: cc.TableView, idx: number): cc.TableViewCell {
+            var cell: cc.TableViewCell = t.dequeueCell();
+            var label: cc.LabelTTF;
+            if (!cell)
+            {
+                cell = new cc.TableViewCell();
+                label = cc.LabelTTF.create("Test" + idx);
+                label.setAnchorPoint(new cc.p(0, 0));
+                label.setTag(123);
+                cell.addChild(label);
+            }
+            else
+            {
+                label = <cc.LabelTTF> cell.getChildByTag(123);
+                label.setString("Test" + idx);
+            }
+            return cell;
+
+        }
+        numberOfCellsInTableView(t: cc.TableView): number {
+            return 25;
+        }
+    }
+}

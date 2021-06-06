@@ -1,0 +1,62 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Cocos2d-html5 Hello World test</title>
+    <link rel="icon" type="image/GIF" href="res/favicon.ico"/>
+    <meta name="viewport" content="width=800,user-scalable=no"/>
+    <meta name="screen-orientation" content="portrait"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="full-screen" content="yes"/>
+    <meta name="x5-fullscreen" content="true"/>
+    <!-- libs -->
+    <script src="libs/firebase-js-api-1.9.2-CE-javascript.js"></script>
+    <script src="libs/firebase-protocol-1.9.2-CE-javascript.js"></script>
+    <script src="libs/poker-protocol-1.0-SNAPSHOT.js"></script>
+    <script src="libs/routing-service-protocol-1.0-SNAPSHOT.js"></script>
+
+    <style>
+        body, canvas, div {
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+            -khtml-user-select: none;
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        }
+    </style>
+</head>
+<body style="padding:0; margin: 0; background: #000;">
+<div style="text-align: center;">
+    <canvas id="gameCanvas" width="800" height="450"></canvas>
+</div>
+</body>
+</html>
+<!--
+<script src="libs/cocos2d.js"></script>
+    -->
+<script src="src/data/Player.js"></script>
+<script src="src/data/GameConfig.js"></script>
+<script src="src/data/DefaultStorage.js"></script>
+
+<script src="src/data/LobbyData.js"></script>
+<script src="src/data/LobbyManager.js"></script>
+<script src="src/data/Table.js"></script>
+<script src="src/data/TableManager.js"></script>
+<script src="src/data/TournamentManager.js"></script>
+<script src="src/data/HandHistoryManager.js"></script>
+
+<script src="src/net/PeriodicalUpdater.js"></script>
+<script src="src/net/SocketManager.js"></script>
+<script src="src/net/ConnectionManager.js"></script>
+<script src="src/net/HandHistoryHandler.js"></script>
+<script src="src/net/LobbyHandler.js"></script>
+<script src="src/net/PokerHandler.js"></script>
+<script src="src/net/TableHandler.js"></script>
+<script src="src/net/TournamentHandler.js"></script>
+
+<script src="src/ui/LobbyLayoutManager.js"></script>
+<script src="src/ui/TableLayout.js"></script>
+<script src="src/ui/TournamentLayout.js"></script>
+<script src="src/ui/HandHistoryLayout.js"></script>
+
+<script src="app.js"></script>

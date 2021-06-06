@@ -1,2 +1,2 @@
 # Poker-Cubeia
-Poker Cubeia Java Server and Flash frontend.
+Poker Cubeia Java Server Backend and Flash frontend.

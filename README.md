@@ -1,2 +1,12 @@
-# Poker-Cubeia
-Poker Cubeia Java Server Backend and Flash frontend.
+lua
+===
+
+lua test
+
+copy file
+
+poker/client/web/src/test/resources/client.properties
+
+to
+
+poker/uar/src/test/resources/firebase/conf/
